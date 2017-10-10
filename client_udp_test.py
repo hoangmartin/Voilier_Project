@@ -9,6 +9,7 @@ import time
 client,PORT="127.0.0.1",12000
 ID=0
 
+
 #générer des valeurs
 while True:
     ID+=1
@@ -21,19 +22,19 @@ while True:
     sock.sendto(trame,(client,PORT))
     print "Message envoyé:",trame[0],trame[1],trame[2],trame[3]
     
-##    
 #afficher des infos sur l'écran
-
-    print "===============================\n"
+    print ""
     print "Réponse du serveur"
     response, addr=sock.recvfrom(100)
-    print "Trame de réponse:", response.encode("hex")
-    print "Latitude:",(response[4])
-    print "Longitude:",(response[5])
-    print "ID",ord(response[0])
-    print "Vitesse du vent: ",ord(response[1])
-    print "Direction du vent:",ord(response[2])
-    print "Gite:",ord(response[3])
+    
+    print "Trame de réponse:     ", response.encode("hex")
+    print "ID:                   ",ord(response[0])
+    print "Vitesse du vent:      ",ord(response[1])
+    print "Direction du vent:    ",ord(response[2])
+    print "Gite du bateau:       ",ord(response[3])
+    print "Latitude:             ",hex(ord(response[4])),hex(ord(response[5])),hex(ord(response[6])),hex(ord(response[7]))
+    print "Longitude:            ",hex(ord(response[8])),hex(ord(response[9])),hex(ord(response[10])),hex(ord(response[11])),"\n"
+    print "===========END OF PACKET=============="
     time.sleep(2)
 
 
