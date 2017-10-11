@@ -29,13 +29,13 @@ while True:
     
 #definie Longtitude - Latitude
     
-    Lon= 1651782
+    Lon= 1551782
     b3=(Lon>>24)
     b2=(Lon>>16)&0xFF #décale 16bits et garder les 4 derniers bits en utilisant "&"
     b1=(Lon>>8)&0xFF
     b0=(Lon>>0)&0xFF
     
-    Lat=1651921
+    Lat=1651925
     b7=(Lat>>24)
     b6=(Lat>>16)&0xFF
     b5=(Lat>>8)&0xFF
@@ -47,14 +47,14 @@ while True:
     print "Envoi de la trame de réponse:",str(trame_res).encode("hex")
     sock.sendto(trame_res, addr)    
     print ""
-    print "ID:                    ",ord(data[0])
-    print "Longueur du datagram:  ",ord(data[1])
-    print "GV:                    ",ord(data[2])
-    print "Safran:                ",ord(data[3])
-    print ""
+    print "ID:                                      ",ord(data[0])
+    print "Longueur du datagram:     ",ord(data[1])
+    print "GV:                                    ",ord(data[2])
+    print "Safran:                               ",ord(data[3])
+    print ""    
 # afficher Longtitude - Latitude
     
-    print "Latitude: ", Lat
+    print "Latitude:                  ", Lat
     print "Valeur Hexa de b2: ",hex(b6)
     print "Valeur Hexa de b1: ",hex(b5)
     print "Valeur Hexa de b0: ",hex(b4)
@@ -64,7 +64,7 @@ while True:
     print "Valeur Hexa de b2: ",hex(b2)
     print "Valeur Hexa de b1: ",hex(b1)
     print "Valeur Hexa de b0: ",hex(b0), "\n"
-    print "===========END OF PACKET=============="
+    print "===========| END OF PACKET |============"
 
 
 

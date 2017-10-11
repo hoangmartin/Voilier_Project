@@ -16,6 +16,7 @@ while True:
     Taille=randint(0,100)
     GV=randint(0,100)
     SF=randint(0,100)
+    
 #creation d'un trmae
     trame=bytearray([ID,Taille,GV,SF])
     sock=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -26,19 +27,17 @@ while True:
     print ""
     print "Réponse du serveur"
     response, addr=sock.recvfrom(100)
-    
+
     print "Trame de réponse:     ", response.encode("hex")
-    print "ID:                   ",ord(response[0])
-    print "Vitesse du vent:      ",ord(response[1])
-    print "Direction du vent:    ",ord(response[2])
-    print "Gite du bateau:       ",ord(response[3])
-    print "Latitude:             ",hex(ord(response[4])),hex(ord(response[5])),hex(ord(response[6])),hex(ord(response[7]))
-    print "Longitude:            ",hex(ord(response[8])),hex(ord(response[9])),hex(ord(response[10])),hex(ord(response[11])),"\n"
-    print "===========END OF PACKET=============="
+    print "ID:                               ",ord(response[0])
+    print "Gite du bateau:           ",ord(response[3])
+    print "Vitesse du vent:          ",ord(response[1])
+    print "Direction du vent:       ",ord(response[2])
+    print "Latitude:                     ",(ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0)
+    print "Longitude:                  ",(ord(response[8])<<24)+(ord(response[9])<<16)+(ord(response[10])<<8)+(ord(response[11])<<0),"\n"
+  
+    print "===========| END OF PACKET |=============="
     time.sleep(2)
-
-
-
 
 
 
