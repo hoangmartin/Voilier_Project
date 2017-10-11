@@ -25,7 +25,7 @@ while True:
 #data  from client
     data,addr=sock.recvfrom(1024)
     print "Connection established (: \n"
-    print "Receive message:"
+    print "MESSAGES SENDING"
     
 #definie Longtitude - Latitude
     
@@ -47,10 +47,10 @@ while True:
     print "Envoi de la trame de réponse:",str(trame_res).encode("hex")
     sock.sendto(trame_res, addr)    
     print ""
-    print "ID:                                      ",ord(data[0])
-    print "Longueur du datagram:     ",ord(data[1])
-    print "GV:                                    ",ord(data[2])
-    print "Safran:                               ",ord(data[3])
+    print "ID:                            ",ord(data[0])
+    print "Longueur:                ",ord(data[1])
+    print "GV:                          ",ord(data[2])
+    print "Safran:                    ",ord(data[3])
     print ""    
 # afficher Longtitude - Latitude
     
@@ -60,15 +60,8 @@ while True:
     print "Valeur Hexa de b0: ",hex(b4)
 
     print ""
-    print "Longtitude:", Lon
+    print "Longtitude:              ", Lon
     print "Valeur Hexa de b2: ",hex(b2)
     print "Valeur Hexa de b1: ",hex(b1)
     print "Valeur Hexa de b0: ",hex(b0), "\n"
-    print "===========| END OF PACKET |============"
-
-
-
-
-
-
-    
+    print "===========| END OF PACKET |============\n"

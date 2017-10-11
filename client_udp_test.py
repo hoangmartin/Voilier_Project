@@ -25,7 +25,7 @@ while True:
     
 #afficher des infos sur l'écran
     print ""
-    print "Réponse du serveur"
+    print "RESPONSE FROM SERVER"
     response, addr=sock.recvfrom(100)
 
     print "Trame de réponse:     ", response.encode("hex")
@@ -36,14 +36,8 @@ while True:
     print "Latitude:                     ",(ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0)
     print "Longitude:                  ",(ord(response[8])<<24)+(ord(response[9])<<16)+(ord(response[10])<<8)+(ord(response[11])<<0),"\n"
   
-    print "===========| END OF PACKET |=============="
-    time.sleep(2)
-
-
-
-
-
-
+    print "===========| END OF PACKET |==============\n"
+    time.sleep(4)
 
 
 
