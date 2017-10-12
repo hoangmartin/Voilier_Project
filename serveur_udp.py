@@ -4,6 +4,20 @@
 import socket
 from random import randint
 
+##class Serveur:
+##    def __init__(self, server='127.0.0.1',port=12000):
+##        self.server=server
+##        self.port=port
+##        self.sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+##
+##    def envoyer(self, ):
+##
+##
+
+
+
+
+##
 #server,PORT='192.168.0.231',6000
 server,port="127.0.0.1",12000
 ID=0
@@ -28,14 +42,15 @@ while True:
     print "MESSAGES SENDING"
     
 #definie Longtitude - Latitude
-    
-    Lon= 1551782
+    Long= 15.51782
+    Lon= int(Long*100000)
     b3=(Lon>>24)
     b2=(Lon>>16)&0xFF #décale 16bits et garder les 4 derniers bits en utilisant "&"
     b1=(Lon>>8)&0xFF
     b0=(Lon>>0)&0xFF
-    
-    Lat=1651925
+
+    Lati=16.51925
+    Lat=int(Lati*100000)
     b7=(Lat>>24)
     b6=(Lat>>16)&0xFF
     b5=(Lat>>8)&0xFF
@@ -54,14 +69,15 @@ while True:
     print ""    
 # afficher Longtitude - Latitude
     
-    print "Latitude:                  ", Lat
+    print "Latitude:                  ", Lati
     print "Valeur Hexa de b2: ",hex(b6)
     print "Valeur Hexa de b1: ",hex(b5)
     print "Valeur Hexa de b0: ",hex(b4)
 
     print ""
-    print "Longtitude:              ", Lon
+    print "Longtitude:              ", Long
     print "Valeur Hexa de b2: ",hex(b2)
     print "Valeur Hexa de b1: ",hex(b1)
     print "Valeur Hexa de b0: ",hex(b0), "\n"
     print "===========| END OF PACKET |============\n"
+
