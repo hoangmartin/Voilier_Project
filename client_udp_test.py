@@ -57,18 +57,30 @@ while True:
 
     print "Trame de réponse:     ", response.encode("hex")
     print "ID:                               ",ord(response[0])
-    print "Gite du bateau:           ",ord(response[3])
-    print "Vitesse du vent:          ",ord(response[1])
-    print "Direction du vent:       ",ord(response[2])
+    print "Gite du bateau:           ",ord(response[3]),"°"
+    print "Vitesse du vent:          ",ord(response[1]),"°"
+    print "Direction du vent:       ",ord(response[2]),"nd"
 
-    lon=((float)((ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0)))
-    if ord(response[4])>127:
+##    lon=((float)(ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0))/1000000
+##    lat=((float)(ord(response[8])<<24)+(ord(response[9])<<16)+(ord(response[10])<<8)+(ord(response[11])<<0))/1000000
+    lon=((ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0))
+    lat=((ord(response[8])<<24)+(ord(response[9])<<16)+(ord(response[10])<<8)+(ord(response[11])<<0))
+    b4= ord(response[4])
+    b8= ord(response[8])
+    
+    if b4>127:
         lon=(~lon)&0xFFFFFFFF
         lon=lon+1
-        lon=lon*-1
-    print "Latitude:                     ",((float)((ord(response[4])<<24)+(ord(response[5])<<16)+(ord(response[6])<<8)+(ord(response[7])<<0)))/1000000
+        lon=lon*(-1)
+
+    if b8>127:
+        lat=(~lat)&0xFFFFFFFF
+        lat=lat+1
+        lat=lat*(-1) 
         
-    print "Longitude:                  ",((float)(ord(response[8])<<24)+(ord(response[9])<<16)+(ord(response[10])<<8)+(ord(response[11])<<0))/1000000,"\n"
+    print "Latitude:                     ",(float(lat))/1000000
+        
+    print "Longitude:                  ",(float(lon))/1000000,"\n"
   
     print "===========| END OF PACKET |==============\n"
     time.sleep(4)

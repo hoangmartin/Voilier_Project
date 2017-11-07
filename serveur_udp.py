@@ -39,22 +39,22 @@ while True:
 #data  from client
     data,addr=sock.recvfrom(1024)
     print "Connection established (: \n"
-    print "MESSAGES SENDING"
+    print "MESSAGE SENDING"
     
 #definie Longtitude - Latitude
-    Long= 15.51782
-    Lon= int(Long*100000)
-    b3=(Lon>>24)
-    b2=(Lon>>16)&0xFF #décale 16bits et garder les 4 derniers bits en utilisant "&"
-    b1=(Lon>>8)&0xFF
-    b0=(Lon>>0)&0xFF
 
-    Lati=16.51925
-    Lat=int(Lati*100000)
-    b7=(Lat>>24)
-    b6=(Lat>>16)&0xFF
-    b5=(Lat>>8)&0xFF
-    b4=(Lat>>0)&0xFF
+    Long= 5517822
+    b3=(Long>>24)&0xFF
+    b2=(Long>>16)&0xFF #décale 16bits et garder les 4 derniers bits en utilisant "&"
+    b1=(Long>>8)&0xFF
+    b0=Long&0xFF
+    
+        
+    Lati=-1651925
+    b7=(Lati>>24)&0xFF
+    b6=(Lati>>16)&0xFF
+    b5=(Lati>>8)&0xFF
+    b4=Lati&0xFF
     
 #réponse to client
     
@@ -66,16 +66,17 @@ while True:
     print "Longueur:                ",ord(data[1])
     print "GV:                          ",ord(data[2])
     print "Safran:                    ",ord(data[3])
-    print ""    
-# afficher Longtitude - Latitude
+    print ""
     
-    print "Latitude:                  ", Lati
+# afficher Longtitude - Latitude
+
+    print "Latitude:                  ", ((float)(Lati))/1000000
     print "Valeur Hexa de b2: ",hex(b6)
     print "Valeur Hexa de b1: ",hex(b5)
     print "Valeur Hexa de b0: ",hex(b4)
 
     print ""
-    print "Longtitude:              ", Long
+    print "Longtitude:              ", ((float)(Long))/1000000
     print "Valeur Hexa de b2: ",hex(b2)
     print "Valeur Hexa de b1: ",hex(b1)
     print "Valeur Hexa de b0: ",hex(b0), "\n"
