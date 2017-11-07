@@ -4,20 +4,7 @@
 import socket
 from random import randint
 
-##class Serveur:
-##    def __init__(self, server='127.0.0.1',port=12000):
-##        self.server=server
-##        self.port=port
-##        self.sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-##
-##    def envoyer(self, ):
-##
-##
 
-
-
-
-##
 #server,PORT='192.168.0.231',6000
 server,port="127.0.0.1",12000
 ID=0

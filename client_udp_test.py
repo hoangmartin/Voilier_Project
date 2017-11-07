@@ -4,33 +4,6 @@
 import socket
 from random import randint
 import time
-##from threading import Thread
-##
-##class Clients:
-##    def __init__(self, client='127.0.0.1', PORT=120000, ID=0):
-##        self.client=client
-##        self.PORT=PORT
-##        self.ID=ID
-##        self.Taille=Taille
-##        self.GV=GV
-##        self.SF=SF
-##        self.sock=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-##
-##    def send(self,trame):
-##        self.sock.sendto(trame,(self.client,self.PORT))
-##    def send_loop(self):
-##        while (True):
-##            self.ID+=1
-##            self.Taille=randint(0,100)
-##            self.GV=randint(0,100)
-##            self.SF=randint(0,100)
-##            
-        
-
-
-
-
-
 
 ###client,PORT='192.168.0.231',6000
 client,PORT="127.0.0.1",12000
